@@ -23,6 +23,13 @@
     padding-top: 150px;
     padding-left: 0;
   }
+
+  /* style login card */
+  #formsection {
+    background-color:#3d003f; 
+    border-radius:10px;
+    color: #ffffff;
+  }
   
   /* ======-- horizontal rule --======*/
   #hr {
@@ -65,4 +72,12 @@ a {
   a:hover{
     color: #e8491d !important;
     font-size: bold !important;
+  }
+
+  /* ====== footer =======*/
+
+.footer{
+    width: 100%;
+    height: auto;
+    background-color: #3d003f;
   }
