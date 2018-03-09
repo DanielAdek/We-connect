@@ -85,6 +85,23 @@ a {
     background-size: cover;
   }
   
+  /* ====== Dashboard header ====== */
+
+#dashboardheader {
+  background-color: #3d003f;
+  height: auto;
+}
+
+/* ========= Navigation bars ======= */
+#currentitem {
+  background-color: #3d003a;
+}
+
+/* ======== Dashboard sidebar section ======== */
+
+#sidebarnavsection {
+  background-color: #3d003f;
+}
 
   /* ====== footer =======*/
 
