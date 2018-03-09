@@ -103,6 +103,13 @@ a {
   background-color: #3d003f;
 }
 
+/* profile bg picture */
+
+.profile-bg-pic {
+  width:100%; 
+  height:400px;
+}
+
   /* ====== footer =======*/
 
 .footer{
