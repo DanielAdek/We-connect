@@ -52,3 +52,17 @@
   .headerdivcol{
     height: 10px;
   }
+
+  /* ======= links and list ===== */
+a {
+    text-decoration: none !important;
+  }
+  
+  ul li a{
+    color: #ffffff !important;
+  }
+  
+  a:hover{
+    color: #e8491d !important;
+    font-size: bold !important;
+  }
