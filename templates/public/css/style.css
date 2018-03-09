@@ -17,3 +17,38 @@
     width: 100%;
     color: #ffffff;
   }
+
+  #advert {
+    text-align: center;
+    padding-top: 150px;
+    padding-left: 0;
+  }
+  
+  /* ======-- horizontal rule --======*/
+  #hr {
+    background-color: #3d003f;
+  }
+  /*========== Header section ========= */
+  
+  #header{
+    background-color: #3d003f !important;
+    border-bottom:#e8491d 3px solid;
+    color: #ffffff;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  #logodiv {
+    float: left;
+    height: 50px;
+  }
+  
+  #logo {
+    font-family: Arial; 
+    font-size:40px; 
+    color:#e8241d;
+  }
+  
+  .headerdivcol{
+    height: 10px;
+  }
