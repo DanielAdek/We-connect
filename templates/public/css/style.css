@@ -110,6 +110,14 @@ a {
   height:400px;
 }
 
+/* jumbotron */
+.catalogbackground{
+  background: url('./../img/imag.jpg') 0 -7px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: auto;
+  opacity: 0.9;
+}
   /* ====== footer =======*/
 
 .footer{
