@@ -78,6 +78,12 @@ a {
   .btn-purple {
     background-color: #3d003f;
   }
+
+  /* sign up and register business background */
+  .background-style{
+    background: url('./../img/home1.jpg') no-repeat;
+    background-size: cover;
+  }
   
 
   /* ====== footer =======*/
