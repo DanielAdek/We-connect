@@ -1,0 +1,11 @@
+/* ========== global ========== */
+* {
+    font: 15px/1.5 Arial, sans-serif;
+  }
+  
+  html, body {
+    background-color:#f4f4f5;
+    margin: 0;
+    padding:0;
+  }
+  
