@@ -79,6 +79,10 @@ a {
     background-color: #3d003f;
   }
 
+  .bg-purple{
+    background-color: #391146;
+  }
+
   /* sign up and register business background */
   .background-style{
     background: url('./../img/home1.jpg') no-repeat;
