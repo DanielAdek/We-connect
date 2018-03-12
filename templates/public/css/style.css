@@ -1,0 +1,135 @@
+/* ========== global ========== */
+* {
+    font: 15px/1.5 Arial, sans-serif;
+  }
+  
+  html, body {
+    background-color:#f4f4f5;
+    margin: 0;
+    padding:0;
+  }
+  
+  /*====== home page bacground ==== */
+#backgroundpichomepage {
+    background: url('./../img/andelapic.jpg') no-repeat;
+    background-size:cover;
+    height: auto;
+    width: 100%;
+    color: #ffffff;
+  }
+
+  #advert {
+    text-align: center;
+    padding-top: 150px;
+    padding-left: 0;
+  }
+
+  /* style login card */
+  #formsection {
+    background-color:#3d003f; 
+    border-radius:10px;
+    color: #ffffff;
+  }
+  
+  /* ======-- horizontal rule --======*/
+  #hr {
+    background-color: #3d003f;
+  }
+  /*========== Header section ========= */
+  
+  #header{
+    background-color: #3d003f !important;
+    border-bottom:#e8491d 3px solid;
+    color: #ffffff;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  #logodiv {
+    float: left;
+    height: 50px;
+  }
+  
+  #logo {
+    font-family: Arial; 
+    font-size:40px; 
+    color:#e8241d;
+  }
+  
+  .headerdivcol{
+    height: 10px;
+  }
+
+  /* ======= links and list ===== */
+a {
+    text-decoration: none !important;
+  }
+  
+  ul li a{
+    color: #ffffff !important;
+  }
+  
+  a:hover{
+    color: #e8491d !important;
+    font-size: bold !important;
+  }
+
+  /* text and background reusable css */
+  .btn-purple {
+    background-color: #3d003f;
+  }
+
+  .bg-purple{
+    background-color: #391146;
+  }
+
+  /* sign up and register business background */
+  .background-style{
+    background: url('./../img/home1.jpg') no-repeat;
+    background-size: cover;
+  }
+  
+  /* ====== Dashboard header ====== */
+
+#dashboardheader {
+  background-color: #3d003f;
+  height: auto;
+}
+
+/* ========= Navigation bars ======= */
+#currentitem {
+  background-color: #3d003a;
+}
+
+/* ======== Dashboard sidebar section ======== */
+
+#sidebarnavsection {
+  background-color: #3d003f;
+}
+
+/* profile bg picture */
+
+.profile-bg-pic {
+  width:100%; 
+  height:400px;
+}
+
+/* jumbotron */
+.catalogbackground{
+  background: url('./../img/imag.jpg') 0 -7px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: auto;
+  opacity: 0.9;
+}
+
+.form-float-right{
+  float: right;
+}
+  /* ====== footer =======*/
+
+.footer{
+    width: 100%;
+    height: auto;
+    background-color: #3d003f;
+  }
