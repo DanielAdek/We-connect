@@ -1,6 +1,7 @@
 import express from 'express';
 import users from './../controllers/usersController';
 import business from './../controllers/businessController';
+import middleware from './../middleware/businessMiddleware'
 
 const router = express.Router();
 
@@ -11,5 +12,6 @@ router.put('/api/v1/business/:businessid', business.updateBusiness);
 router.delete('/api/v1/business/:businessid', business.destroyBusiness);
 router.get('/api/v1/business/:businessid', business.findOnebusiness);
 router.get('/api/v1/businesses', business.findAllBusinesses);
+router.get('/api/v1/businesses', middleware.searchByquery, business.findAllBusinesses);
 
 export default router;
