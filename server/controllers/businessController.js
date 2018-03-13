@@ -76,24 +76,5 @@ export default class Business {
         });
     }
 
-    /**
-     * @param {*} req
-     * @param {*} res
-     */
-    static findByLocation(req, res) {
-        const location = req.query.location;
-        const loc = [];
-        for (let biz of businesses) {
-            if (biz.location === locations) {
-                loc.push(biz);
-                return res.status(200).json({
-                    location: locations,
-                    Businesses: loc
-                })
-            }
-        }
-        if (loc.length === 0) {
-            return res.status(404).send(`No businesses at ${locations} location`);
-        }
-    }
+    
 }
