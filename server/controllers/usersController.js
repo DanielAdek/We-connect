@@ -1,9 +1,9 @@
-
+import businesses from './../dummydb/usersdb';
 
 /** 
  * @class Users
 */
-import businesses from './../dummydb/dummydb';
+
 
 
 
@@ -27,5 +27,21 @@ export default class Users {
                 err: true
             })
         }
+    }
+
+    // login to user account
+
+    /**
+     * @returns {object} loginUser
+     * @param {*} req 
+     * @param {*} res 
+     */
+    static loginUser(req, res) {
+        for (let user of businesses) {
+            if (user.email == req.body.email && user.password == req.body.password) {
+                return res.status(200).json({messsage:'Login succesfull'})
+            }
+        }
+        return res.status(401).json('please sign up');
     }
 }
