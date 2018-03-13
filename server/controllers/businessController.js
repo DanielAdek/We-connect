@@ -29,4 +29,19 @@ export default class Business {
         return res.status(404).json('404 business not found');
     }
    
+    /**
+     * @returns {object} destroyBusiness
+     * @param {*} req 
+     * @param {*} res 
+     */
+
+    static destroyBusiness(req, res) {
+        for (let i = 0; i < businesses.length; i += 1) {
+            if (businesses[i].id === parseInt(req.params.businessid, 10)) {
+                businesses.splice(i, 1);
+                return res.status(200).json('successfully deleted');
+            }
+        }
+        return res.status(404).send('404, page not found')
+    }
 }
