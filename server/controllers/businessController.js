@@ -60,6 +60,19 @@ export default class Business {
         return res.status(200).json({
             business: biz
         });
+    }
 
+    /**
+     * @returns {object} findAllBusinesses
+     * @param {*} req 
+     * @param {*} res 
+     */
+    static findAllBusinesses(req, res) {
+        if(businesses.length === 0) {
+            return res.status(404).send('404 No business found');
+        }
+        return res.status(200).json({
+            allBusinesses: businesses
+        });
     }
 }
