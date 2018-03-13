@@ -16,7 +16,6 @@ describe('Test all users APIs', ()=> {
             password: 'chairate'
         };
         it('should return successfull with status 200', (done)=> {
-            const username = 'john';
             request
                 .post('/api/v1/auth/signup')
                 .send(new_user)
