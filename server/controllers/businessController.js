@@ -1,4 +1,5 @@
 import businesses from './../dummydb/usersdb';
+import reviewers from './../dummydb/reviewsdb';
 
 
 /** 
@@ -75,6 +76,19 @@ export default class Business {
             allBusinesses: businesses
         });
     }
-
     
+    /**
+     * @return {object} userFeedback
+     * @param {*} req 
+     * @param {*} res 
+     */
+    static userFeedback(req, res) {
+        for (let review of reviewers) {
+            if (review.id === parseInt(req.params.businessid, 10)) {
+                reviewers.push(req.body);
+                return res.status(200).json('Thanks, Your feedback is taken');
+            }
+        }
+        return res.status(400).json('business not found');
+    }
 }
