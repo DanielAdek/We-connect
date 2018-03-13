@@ -39,9 +39,28 @@ export default class Users {
     static loginUser(req, res) {
         for (let user of businesses) {
             if (user.email == req.body.email && user.password == req.body.password) {
-                return res.status(200).json({messsage:'Login succesfull'})
+                return res.status(200).json({ messsage: 'Login succesfull' })
             }
         }
         return res.status(401).json('please sign up');
+    }
+
+    /**
+     * @returns {object} createBusiness
+     * @param {*} req 
+     * @param {*} res 
+     */
+    static createBusiness(req, res) {
+        if (req.body.firstname && req.body.lastname && req.body.email && req.body.location && req.body.category && req.body.password && req.body.businessname) {
+            businesses.push(req.body)
+            return res.status(201).json({
+                messsage: "New Business Created Successfully"
+            });
+        }
+        return res.status(400).json({
+            messsage: 'All (*) fields cannot be empty',
+            err: true
+        })
+
     }
 }
