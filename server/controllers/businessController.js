@@ -12,7 +12,7 @@ export default class Business {
      * @param {*} res 
      */
 
-     // update a business profile
+    // update a business profile
     static updateBusiness(req, res) {
         for (let biz of businesses) {
             if (biz.id === parseInt(req.params.businessid)) {
@@ -28,7 +28,7 @@ export default class Business {
         }
         return res.status(404).json('404 business not found');
     }
-   
+
     /**
      * @returns {object} destroyBusiness
      * @param {*} req 
@@ -43,5 +43,23 @@ export default class Business {
             }
         }
         return res.status(404).send('404, page not found')
+    }
+
+    /**
+   * @returns {object} findOnebusiness
+   * @param {*} req 
+   * @param {*} res 
+   * 
+   */
+
+    static findOnebusiness(req, res) {
+        const biz = businesses.find(business => business.id === parseInt(req.params.businessid, 10));
+        if (!biz) {
+            res.status(404).json('404 business not found');
+        }
+        return res.status(200).json({
+            business: biz
+        });
+
     }
 }
