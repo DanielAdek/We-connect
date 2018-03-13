@@ -89,6 +89,6 @@ export default class Business {
                 return res.status(200).json('Thanks, Your feedback is taken');
             }
         }
-        return res.status(400).json('business not found');
+        return res.status(404).json('business not found');
     }
 }
