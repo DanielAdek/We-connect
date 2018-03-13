@@ -23,7 +23,7 @@ export default class Users {
             });
         } else {
             return res.status(400).json({
-                messsage: 'Input field cannot be empty',
+                message: 'Input field cannot be empty',
                 err: true
             })
         }
