@@ -8,8 +8,8 @@ router.post('/api/v1/auth/signup', users.createUser);
 router.post('/api/v1/auth/login', users.loginUser);
 router.post('/api/v1/business', users.createBusiness);
 router.put('/api/v1/business/:businessid', business.updateBusiness);
-router.delete('/api/v1/business/:businessid', users.destroyBusiness);
-router.get('/api/v1/business/:businessid', users.findOnebusiness);
+router.delete('/api/v1/business/:businessid', business.destroyBusiness);
+router.get('/api/v1/business/:businessid', business.findOnebusiness);
 router.get('/api/v1/businesses', business.findAllBusinesses);
 
 export default router;
