@@ -91,4 +91,21 @@ export default class Business {
         }
         return res.status(404).json('business not found');
     }
+
+    /**
+     * @return {object} retrieveReview
+     * @param {*} req 
+     * @param {*} res 
+     */
+    static retrieveReview(req, res) {
+        const review = reviewers.find(review => review.id === parseInt(req.params.businessid, 10));
+        if (!review) {
+            res.status(404).json('Business not found');
+        }
+        return res.status(200).json({
+            patronage: review.reviewer,
+            feedback: review.feedback
+        });
+
+    }
 }
