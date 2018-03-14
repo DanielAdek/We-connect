@@ -24,7 +24,7 @@ describe('Test all users APIs', ()=> {
                     res.should.have.status(201);
                     res.body.should.be.an('object');
                     res.body.should.have.property('user');
-                    res.body.user.should.be.equal(`${username} is successfully created as a new user`);
+                    res.body.user.should.be.equal(`${new_user.username} is successfully created as a new user`);
                     done();
                 });
         });
