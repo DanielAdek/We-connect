@@ -56,7 +56,7 @@ export default class Business {
     static findOnebusiness(req, res) {
         const biz = businesses.find(business => business.id === parseInt(req.params.businessid, 10));
         if (!biz) {
-            res.status(404).json('404 business not found');
+            return res.status(404).json('404 business not found');
         }
         return res.status(200).json({
             business: biz
