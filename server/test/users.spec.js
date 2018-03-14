@@ -80,4 +80,44 @@ describe('Test all users APIs', () => {
             done();
         });
     });
+
+    describe('/POST route create user business', () => {
+        const newUser = {
+            firstname: 'Daniel',
+            lastname: 'Adek',
+            businessname: 'codehub',
+            location: 'newYork',
+            category: 'programming',
+            email: 'maildaniel.me1@gmail.com',
+            password: 'passwordsample'
+        };
+        const nodata = {};
+        it('should create business and return 201 status code', (done) => {
+            request
+                .post('/api/v1/business')
+                .send(newUser)
+                .end((err, res) => {
+                    res.should.have.status(201);
+                    res.body.should.be.an('object');
+                    res.body.should.have.property('message');
+                    res.body.message.should.be.eql("New Business Created Successfully")
+                    done();
+                });
+        });
+
+        it.only('should not create business but return 401 status code', (done)=> {
+            request
+                .post('/api/v1/business')
+                .send(nodata)
+                .end((err, res)=> {
+                    res.should.have.status(400);
+                    res.body.should.be.a('object');
+                    res.body.should.have.property('message');
+                    res.body.should.have.property('err');
+                    res.body.message.should.be.eql('All (*) fields cannot be empty');
+                    res.body.err.should.be.eql(true);
+                });
+            done();
+        });
+    });
 });
