@@ -51,4 +51,27 @@ describe('/Test all routes on business', () => {
                 });
         })
     })
+
+    describe.only('/PUT route create business', () => {
+        it('should not return a business and return 404 status code', (done) => {
+            request
+                .get('/api/v1/business/90')
+                .end((err, res) => {
+                    res.should.have.status(404);
+                    res.body.should.have.be.a('string');
+                    res.body.should.be.eql('404 business not found')
+                    done();
+                });
+        });
+
+        it('should return a business and return 200 status code', (done) => {
+            request
+                .get('/api/v1/business/3')
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    res.body.should.have.property('business');
+                    done();
+                });
+        });
+    });
 })
