@@ -39,7 +39,7 @@ export default class Users {
     static loginUser(req, res) {
         for (let user of businesses) {
             if (user.email == req.body.email && user.password == req.body.password) {
-                return res.status(200).json({ messsage: 'Login succesfull' })
+                return res.status(200).json({ messsage: `Welcome ${user.firstname}!` })
             }
         }
         return res.status(401).json('please sign up');
