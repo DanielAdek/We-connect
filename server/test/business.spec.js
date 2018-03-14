@@ -74,4 +74,28 @@ describe('/Test all routes on business', () => {
                 });
         });
     });
+
+    describe.only('/POST route review business', () => {
+        it('should post a reviews and return 200 status code', (done) => {
+            request
+                .post('/api/v1/businesses/1/reviews')
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    res.body.should.have.be.a('string');
+                    res.body.should.be.eql("Thanks, Your feedback is taken")
+                    done();
+                });
+        });
+
+        it('should not create business but return 401 status code', (done)=> {
+            request
+                .post('/api/v1/businesses/10/reviews')
+                .end((err, res)=> {
+                    res.should.have.status(404);
+                    res.body.should.have.be.a('string');
+                    res.body.should.be.eql('business not found');
+                });
+            done();
+        });
+    });
 })
