@@ -52,7 +52,7 @@ describe('/Test all routes on business', () => {
         })
     })
 
-    describe.only('/PUT route create business', () => {
+    describe.only('/GET route find a business', () => {
         it('should not return a business and return 404 status code', (done) => {
             request
                 .get('/api/v1/business/90')
