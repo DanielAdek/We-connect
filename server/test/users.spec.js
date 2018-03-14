@@ -8,18 +8,18 @@ chai.use(chaiHttp);
 const request = chai.request(app);
 const should = chai.should();
 
-describe('Test all users APIs', ()=> {
-    describe('/POST route', ()=> {
+describe('Test all users APIs', () => {
+    describe('/POST route', () => {
         const new_user = {
-            username:'john',
-            email:'johndoe@example.com',
+            username: 'john',
+            email: 'johndoe@example.com',
             password: 'chairate'
         };
-        it('should return successfull with status 200', (done)=> {
+        it('should return successfull with status 200', (done) => {
             request
                 .post('/api/v1/auth/signup')
                 .send(new_user)
-                .end((err, res)=>{
+                .end((err, res) => {
                     // expect(res.status()).to.be.equal(200);
                     res.should.have.status(201);
                     res.body.should.be.an('object');
@@ -29,11 +29,11 @@ describe('Test all users APIs', ()=> {
                 });
         });
 
-        it('should return bad request with 400 status code', (done)=>{
+        it('should return bad request with 400 status code', (done) => {
             request
                 .post('/api/v1/auth/signup')
                 .send()
-                .end((err, res)=> {
+                .end((err, res) => {
                     res.should.have.status(400);
                     res.body.should.be.an('object');
                     res.body.should.have.property('message');
@@ -43,5 +43,41 @@ describe('Test all users APIs', ()=> {
                     done()
                 })
         })
+    });
+
+    describe('/POST route login user', () => {
+        const user = {
+            firstname: 'Daniel',
+            email: 'maildaniel.me1@gmail.com',
+            password: 'passwordsample'
+        };
+        const notUser = {
+            email: 'wrong',
+            password: '419@gmail.com'
+        }
+        it('shoule return welcome with username and 200 status code', (done) => {
+            request
+                .post('/api/v1/auth/login')
+                .send(user)
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    res.body.should.be.an('object');
+                    res.body.should.have.property('message');
+                    res.body.message.should.be.eql(`Welcome ${user.firstname}!`)
+                    done();
+                });
+        });
+
+        it('should return please sign up with 401 status code', (done)=> {
+            request
+                .post('/api/v1/auth/login')
+                .send(notUser)
+                .end((err, res)=> {
+                    res.should.have.status(401);
+                    res.body.should.be.a('string');
+                    res.body.should.be.eql('please sign up');
+                });
+            done();
+        });
     });
 });
