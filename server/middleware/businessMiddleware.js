@@ -26,7 +26,7 @@ export default class BusinessMiddleware {
             }
         }
         if (data_location.length < 1 && data_category.length < 1) {
-            return res.status(404).send('No businesses found at your specification');
+            return res.status(404).json({message:'No businesses found at your specification'});
         }
         return res.status(200).json({
             business: [...data_location, ...data_category]
