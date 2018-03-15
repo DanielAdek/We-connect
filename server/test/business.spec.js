@@ -9,7 +9,7 @@ const request = chai.request(app);
 const should = chai.should();
 
 describe('/Test all routes on business', () => {
-    describe.only('/PUT route create business', () => {
+    describe('/PUT route create business', () => {
         it('should update a business and return 200 status code', (done) => {
             request
                 .put('/api/v1/business/1')
@@ -31,7 +31,7 @@ describe('/Test all routes on business', () => {
         })
     })
 
-    describe.only('/DELETE route destroy business', () => {
+    describe('/DELETE route destroy business', () => {
         it('should delete a business and return 200 status code', (done) => {
             request
                 .delete('/api/v1/business/1')
@@ -52,7 +52,7 @@ describe('/Test all routes on business', () => {
         })
     })
 
-    describe.only('/GET route find a business', () => {
+    describe('/GET route find a business', () => {
         it('should not return a business and return 404 status code', (done) => {
             request
                 .get('/api/v1/business/90')
@@ -75,7 +75,7 @@ describe('/Test all routes on business', () => {
         });
     });
 
-    describe.only('/POST route review business', () => {
+    describe('/POST route review business', () => {
         it('should post a reviews and return 200 status code', (done) => {
             request
                 .post('/api/v1/businesses/1/reviews')

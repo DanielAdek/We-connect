@@ -105,7 +105,7 @@ describe('Test all users APIs', () => {
                 });
         });
 
-        it.only('should not create business but return 401 status code', (done)=> {
+        it('should not create business but return 401 status code', (done)=> {
             request
                 .post('/api/v1/business')
                 .send(nodata)
