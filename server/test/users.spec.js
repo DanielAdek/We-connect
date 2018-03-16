@@ -46,27 +46,27 @@ describe('Test all users APIs', () => {
     });
 
     describe('/POST route login user', () => {
-        const user = {
-            firstname: 'Daniel',
-            email: 'maildaniel.me1@gmail.com',
-            password: 'passwordsample'
+        const authUser = {
+            firstname: 'mikey mouse',
+            email: 'mikeymouse',
+            password: 'distney'
         };
         const notUser = {
             email: 'wrong',
             password: '419@gmail.com'
         }
-        // it('should return welcome with username and 200 status code', (done) => {
-        //     request
-        //         .post('/api/v1/auth/login')
-        //         .send(user)
-        //         .end((err, res) => {
-        //             res.should.have.status(200);
-        //             res.body.should.be.an('object');
-        //             res.body.should.have.property('message');
-        //             res.body.message.should.be.eql(`Welcome ${user.firstname}!`)
-        //             done();
-        //         });
-        // });
+        it('should return welcome with username and 200 status code', (done) => {
+            request
+                .post('/api/v1/auth/login')
+                .send(authUser)
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    res.body.should.be.an('object');
+                    res.body.should.have.property('message');
+                    res.body.message.should.be.eql(`Welcome ${authUser.firstname}!`)
+                    done();
+                });
+        });
 
         it('should return please sign up with 401 status code', (done)=> {
             request
