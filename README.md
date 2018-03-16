@@ -1,4 +1,6 @@
 # We-connect
+[![Build Status](https://travis-ci.org/DanielAdek/We-connect.svg?branch=master)](https://travis-ci.org/DanielAdek/We-connect)
+
 WEConnect brings business men and individuals together
 
 This project motivates me a lot because its being my dream to connecting people together to make business world an easy world for all.
