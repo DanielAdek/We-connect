@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/DanielAdek/We-connect.svg?branch=ch/travis-#156007508)](https://travis-ci.org/DanielAdek/We-connect?branch=ch/travis-#156007508)
-[![Coverage Status](https://coveralls.io/repos/github/DanielAdek/We-connect/badge.svg?branch=ch/travis-#156007508)](https://coveralls.io/github/DanielAdek/We-connect?branch=ch/travis-#156007508)
+[![Build Status](https://travis-ci.org/DanielAdek/We-connect.svg?branch=develop)](https://travis-ci.org/DanielAdek/We-connect?branch=develop)
+[![Coverage Status](https://coveralls.io/repos/github/DanielAdek/We-connect/badge.svg?branch=develop)](https://coveralls.io/github/DanielAdek/We-connect?branch=develop)
 
 # We-connect
 WEConnect brings business men and individuals together
