@@ -126,6 +126,12 @@ a {
 .form-float-right{
   float: right;
 }
+
+/* ======== icons ========*/
+.fa-icon {
+  font-size: 27px;
+  float: left;
+}
   /* ====== footer =======*/
 
 .footer{
