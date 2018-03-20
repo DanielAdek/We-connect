@@ -11,11 +11,11 @@
   
   /*====== home page bacground ==== */
 #backgroundpichomepage {
-    background: url('./../img/andelapic.jpg') no-repeat;
+    background: url('./../img/Andelapic.jpg') no-repeat;
     background-size:cover;
     height: auto;
     width: 100%;
-    color: #ffffff;
+    /* color: #ffffff; */
   }
 
   #advert {
