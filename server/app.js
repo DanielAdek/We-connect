@@ -1,7 +1,7 @@
 import express from 'express';
 import logger from 'morgan';
 import bodyParser from 'body-parser';
-import routes from './routers';
+import routes from './routes';
  
 // create an instance of express
 const app = express();
