@@ -1,7 +1,7 @@
 import express from 'express';
-import users from './../controllers/usersController';
-import business from './../controllers/businessController';
-import middleware from './../middleware/businessMiddleware'
+import users from './../in-memory/controllers/usersController';
+import business from './../in-memory/controllers/businessController';
+import middleware from './../in-memory/middleware/businessMiddleware';
 
 const router = express.Router();
 
