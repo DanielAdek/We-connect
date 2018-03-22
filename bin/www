@@ -2,7 +2,7 @@ import app from './../server/app';
 import http from 'http';
 
 const port = parseInt(process.env.PORT, 10) || 3000;
-const host = '127.0.0.1';
+// const host = '127.0.0.1';
 const server = http.createServer(app);
 
 
@@ -11,7 +11,7 @@ app.get('*', (req, res)=> {
 });
 
 
-server.listen(port, host, (err)=> {
+server.listen(port, (err)=> {
     err ? console.error(`Unable to connect due to the error: ${err.message}`) :
-    console.log(`Server started on localhost ${host}:${port}`);
+    console.log(`Server started on localhost:${port}`);
 });
