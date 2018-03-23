@@ -1,36 +1,25 @@
-const businesses = [
-    {
-        id: 1,
-        firstname: "Daniel",
-        lastname: "Adekunle",
-        email: "maildaniel.me1@gmail.com",
-        password: "passwordsample",
-        businessname: "codemaster",
-        category: "software",
-        location: "anthony"
-    },
+const users = [
+  {
+    id: 1,
+    username: 'pascker',
+    email: 'maildaniel.me1@gmail.com',
+    password: 'passwordsample',
+  },
 
-    {
-        id: 2,
-        firstname: "mikko",
-        lastname: "joe",
-        email: "mikkojoe@gmail.com",
-        password: "mikkojoe",
-        businessname: "codetherapy",
-        category: "computer science",
-        location: "surulere"
-    },
+  {
+    id: 2,
+    username: 'mikey',
+    email: 'mikkojoe@gmail.com',
+    password: 'mikkojoe',
+  },
 
-    {
-        id:3,
-        firstname: 'mikey mouse',
-        lastname: 'disney',
-        email:'mikeymouse',
-        password: 'distney',
-        businessname: 'catoon',
-        category: "repair",
-        location: "island"
-    }
-]
+  {
+    id: 3,
+    username: 'mouse',
+    email: 'mikeymouse@gmail',
+    password: 'distney',
+  }
+];
 
-export default businesses;
+export default users;
+
