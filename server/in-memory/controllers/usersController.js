@@ -1,5 +1,5 @@
 import users from './../dummydb/usersdb';
-
+import business from './../dummydb/businessesdb';
 /**
  * @class Users
 */
@@ -33,10 +33,15 @@ export default class Users {
      * @param {*} res
      */
   static loginUser(req, res) {
-    for (const user of users) {
-      if (user.email == req.body.email && user.password == req.body.password) {
-        return res.status(200).json({ message: `Welcome ${user.firstname}!` });
+    const { email, password } = req.body;
+    let user;
+    users.forEach((theUser) => {
+      if (theUser.email === email && theUser.password === password) {
+        user = theUser;
       }
+    });
+    if (user) {
+      return res.status(200).json({ message: `Welcome ${user.username}!` });
     }
     return res.status(401).json('please sign up');
   }
@@ -47,9 +52,16 @@ export default class Users {
      * @param {*} res
      */
   static createBusiness(req, res) {
-    if (req.body.firstname && req.body.lastname && req.body.email && req.body.location && req.body.category && req.body.password && req.body.businessname) {
-      users.push(req.body);
+    const {
+      businessname, location, category, phone
+    } = req.body;
+    const userBusiness = {
+      businessname, location, category, phone
+    };
+    if (location && category && phone && businessname) {
+      business.push(userBusiness);
       return res.status(201).json({
+        userBusiness,
         message: 'New Business Created Successfully'
       });
     }

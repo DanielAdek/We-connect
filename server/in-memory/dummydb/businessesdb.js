@@ -1,10 +1,7 @@
 const businesses = [
   {
     id: 1,
-    firstname: 'Daniel',
-    lastname: 'Adekunle',
-    email: 'maildaniel.me1@gmail.com',
-    password: 'passwordsample',
+    phone: '0808018298',
     businessname: 'codemaster',
     category: 'software',
     location: 'anthony'
@@ -12,10 +9,7 @@ const businesses = [
 
   {
     id: 2,
-    firstname: 'mikko',
-    lastname: 'joe',
-    email: 'mikkojoe@gmail.com',
-    password: 'mikkojoe',
+    phone: '09065335678',
     businessname: 'codetherapy',
     category: 'computer science',
     location: 'surulere'
@@ -23,10 +17,21 @@ const businesses = [
 
   {
     id: 3,
-    firstname: 'mikey mouse',
-    lastname: 'disney',
-    email: 'mikeymouse',
-    password: 'distney',
+    phone: '0707364758',
+    businessname: 'survey',
+    category: 'repair',
+    location: 'island'
+  },
+  {
+    id: 4,
+    phone: '0707364758',
+    businessname: 'network',
+    category: 'software',
+    location: 'island'
+  },
+  {
+    id: 5,
+    phone: '0707364758',
     businessname: 'catoon',
     category: 'repair',
     location: 'island'
