@@ -1,5 +1,7 @@
+import bcrypt from 'bcrypt';
 import users from './../dummydb/usersdb';
 import business from './../dummydb/businessesdb';
+
 /**
  * @class Users
 */
@@ -10,18 +12,19 @@ export default class Users {
      * @param {*} res
      */
   static createUser(req, res) {
-    const { username, password, email } = req.body;
-    if (username && email && password) {
-      const user = { username, password, email };
-      users.push(user);
-      return res.status(201).json({
-        user,
-        message: `${username} is successfully created as a new user`
+    const { username, email } = req.body;
+    if (!username || !email || !req.body.password) {
+      return res.status(400).json({
+        message: 'Input field cannot be empty',
+        err: true
       });
     }
-    return res.status(400).json({
-      message: 'Input field cannot be empty',
-      err: true
+    const password = bcrypt.hashSync(req.body.password, 10);
+    const user = { username, password, email };
+    users.push(user);
+    return res.status(201).json({
+      user,
+      message: `${username} is successfully created as a new user`
     });
   }
 
@@ -36,7 +39,8 @@ export default class Users {
     const { email, password } = req.body;
     let user;
     users.forEach((theUser) => {
-      if (theUser.email === email && theUser.password === password) {
+      console.log(password, theUser.password);
+      if ((theUser.email === email) && (bcrypt.compareSync(password, theUser.password))) {
         user = theUser;
       }
     });

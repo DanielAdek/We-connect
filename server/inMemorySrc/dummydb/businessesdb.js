@@ -4,7 +4,8 @@ const businesses = [
     phone: '0808018298',
     businessname: 'codemaster',
     category: 'software',
-    location: 'anthony'
+    location: 'anthony',
+    reviews: []
   },
 
   {
@@ -12,7 +13,8 @@ const businesses = [
     phone: '09065335678',
     businessname: 'codetherapy',
     category: 'computer science',
-    location: 'surulere'
+    location: 'surulere',
+    reviews: []
   },
 
   {
@@ -20,14 +22,16 @@ const businesses = [
     phone: '0707364758',
     businessname: 'survey',
     category: 'repair',
-    location: 'island'
+    location: 'island',
+    reviews: []
   },
   {
     id: 4,
     phone: '0707364758',
     businessname: 'network',
     category: 'software',
-    location: 'island'
+    location: 'island',
+    reviews: []
   },
   {
     id: 5,
