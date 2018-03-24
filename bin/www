@@ -1,5 +1,6 @@
-import app from './../server/app';
 import http from 'http';
+import app from './../server/app';
+
 
 const port = parseInt(process.env.PORT, 10) || 3000;
 // const host = '127.0.0.1';
@@ -12,6 +13,9 @@ app.get('*', (req, res) => {
 
 
 server.listen(port, (err) => {
-  err ? console.error(`Unable to connect due to the error: ${err.message}`) :
-    console.log(`Server started on localhost:${port}`);
+  const { log } = console;
+  if (err) {
+    log(`Unable to connect due to the error: ${err.message}`);
+  }
+  log(`Server started on localhost:${port}`);
 });

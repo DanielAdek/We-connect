@@ -9,7 +9,7 @@ should();
 
 describe('Test all users APIs', () => {
   describe('/POST route', () => {
-    const new_user = {
+    const newUser = {
       username: 'john',
       email: 'johndoe@example.com',
       password: 'chairate'
@@ -17,13 +17,13 @@ describe('Test all users APIs', () => {
     it('should return successfull with status 200', (done) => {
       request
         .post('/api/v1/auth/signup')
-        .send(new_user)
+        .send(newUser)
         .end((err, res) => {
           // expect(res.status()).to.be.equal(200);
           res.should.have.status(201);
           res.body.should.be.an('object');
           res.body.should.have.property('user');
-          res.body.message.should.be.equal(`${new_user.username} is successfully created as a new user`);
+          res.body.message.should.be.equal(`${newUser.username} is successfully created as a new user`);
           done();
         });
     });
