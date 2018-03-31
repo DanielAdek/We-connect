@@ -1,5 +1,10 @@
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 import db from '../models';
+
+require('dotenv').config();
+
+const secret = process.env.SECRET_OR_KEY;
 
 const { User } = db;
 
@@ -32,5 +37,29 @@ export default class Users {
             break;
         }
       });
+  }
+
+  /**
+     * @returns {object} loginUser
+     * @param {*} req
+     * @param {*} res
+     */
+  static loginUser(req, res) {
+    const { email, password } = req.body;
+    if (!email || !password) {
+      res.status(400).json({ message: 'email and password cannot be empty' });
+    }
+    User.findOne({ where: { email } }).then((user) => {
+      if (user && bcrypt.compareSync(req.body.password, user.password)) {
+        const userdata = {
+          email: user.email,
+        };
+        const token = jwt.sign(userdata, secret);
+        return res.status(200).json({ message: 'user logged in', token });
+      }
+      return res.status(400).json({ message: 'email/password incorrect' });
+    }).catch((err) => {
+      res.status(500).json({ message: `server error ${err.message} ` });
+    });
   }
 }
