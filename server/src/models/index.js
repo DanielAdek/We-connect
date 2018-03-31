@@ -10,17 +10,14 @@ const db = {};
 
 let sequelize;
 if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable]);
+  sequelize = new Sequelize(process.env[config.use_env_variable], config);
 } else {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
 fs
   .readdirSync(__dirname)
-  .filter(file =>
-    (file.indexOf('.') !== 0) &&
-    (file !== basename) &&
-    (file.slice(-3) === '.js'))
+  .filter(file => (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js'))
   .forEach((file) => {
     const model = sequelize.import(path.join(__dirname, file));
     db[model.name] = model;
@@ -35,10 +32,12 @@ Object.keys(db).forEach((modelName) => {
 sequelize
   .authenticate()
   .then(() => {
-    console.log('Connection has been established successfully.');
+    const { log } = console;
+    log('sequelize connection authenticated');
   })
   .catch((err) => {
-    console.log(`Unable to connect to the database:, ${err.message}`);
+    const { log } = console;
+    log(`Unable to connect to the sequelize due to error ${err.message}`);
   });
 
 db.sequelize = sequelize;
