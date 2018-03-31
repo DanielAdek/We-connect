@@ -11,7 +11,7 @@ export default (sequelize, DataTypes) => {
       allowNull: false,
       unique: {
         args: true,
-        msg: 'username already existed in use by another user'
+        msg: 'username already in use by another user'
       },
       validate: {
         is: {
@@ -41,12 +41,6 @@ export default (sequelize, DataTypes) => {
     password: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        len: {
-          args: [5, 20],
-          msg: 'password cannot be less than five or greater than twenty'
-        }
-      }
     }
   });
   User.associate = (models) => {
