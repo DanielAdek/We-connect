@@ -14,12 +14,13 @@ export default class Businesses {
     * @returns {object} json
     */
   static createBusiness(req, res) {
+    const { id: userId } = req.decoded;
     const {
       businessname, location, category, phone, businessimage
     } = req.body;
     return Business
       .create({
-        businessname, location, category, phone, businessimage
+        businessname, location, category, phone, businessimage, userId
       })
       .then(business => res.status(201).json({
         message: `${business.businessname} is successfully created as a new business`
@@ -58,14 +59,14 @@ export default class Businesses {
       .catch(err => res.status(500).send(`Internal error ${err.message}`));
   }
 
-   /**
+  /**
    * findAllBusinesses()
     * @returns {object} json
     * @param {*} req
     * @param {*} res
     * @desc find all existing businesses
     */
-   static findAllBusinesses(req, res) {
+  static findAllBusinesses(req, res) {
     return Business.findAll().then((businesses) => {
       if (!businesses) {
         return res.status(404).json('404 No business found');
@@ -95,7 +96,7 @@ export default class Businesses {
       return business.destroy({
         where: { id: req.params.businessid } // cascade: true
       }).then(() => res.status(200).json('businesses deleted'));
-    }).catch(err => res.status(400).json(`no business found ${err.message}`));
+    }).catch(err => res.status(500).json(`server error ${err.message}`));
   }
 
   /**

@@ -5,7 +5,7 @@ import db from '../models';
 require('dotenv').config();
 
 const { User } = db;
-const secret = process.env.SECRET_OR_KEY;
+const secret = process.env.SECRET;
 /**
  * @class Authenticate
  */
@@ -19,7 +19,7 @@ export default class Authenticate {
      * @returns {json} json
      */
   static verifyUser(req, res, next) {
-    const token = req.headers['x-access-token'];
+    const token = req.headers['x-access-token'] || req.query.token || req.headers.authorization;
     if (!token) {
       res.status(403).json('forbidden');
     }
@@ -37,8 +37,6 @@ export default class Authenticate {
         res.status(404).json({ message: 'No user found' });
       }
       req.decoded = decoded;
-      const { log } = console;
-      log(decoded);
       next();
     });
   }
@@ -52,7 +50,7 @@ export default class Authenticate {
      * @param {function} next
      * @returns {json} json
      */
-  static nodata(req, res, next) {
+  static validateInputFields(req, res, next) {
     const check = [];
     const { username, email, password } = req.body;
     if (!username || username.trim() === '') {

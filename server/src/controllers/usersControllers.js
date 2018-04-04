@@ -4,7 +4,7 @@ import db from '../models';
 
 require('dotenv').config();
 
-const secret = process.env.SECRET_OR_KEY;
+const secret = process.env.SECRET;
 
 const { User } = db;
 
