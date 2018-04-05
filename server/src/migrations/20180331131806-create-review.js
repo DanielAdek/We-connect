@@ -2,7 +2,6 @@ module.exports = {
   up: (queryInterface, Sequelize) => queryInterface.createTable('Reviews', {
     id: {
       allowNull: false,
-      serial: true,
       primaryKey: true,
       type: Sequelize.UUID,
       defaultValue: Sequelize.UUIDV4
@@ -23,7 +22,7 @@ module.exports = {
         key: 'id'
       }
     },
-    reviews: {
+    review: {
       type: Sequelize.STRING
     },
     createdAt: {

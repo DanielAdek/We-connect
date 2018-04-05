@@ -4,7 +4,7 @@ import db from '../models';
 
 require('dotenv').config();
 
-const secret = process.env.SECRET_OR_KEY;
+const secret = process.env.SECRET;
 
 const { User } = db;
 
@@ -24,9 +24,14 @@ export default class Users {
     const { username, email } = req.body;
     return User
       .create({ username, email, password })
-      .then(user => res.status(201).json({
-        message: `${user.username} is successfully created as a new account`
-      }))
+      .then((user) => {
+        const { id } = user;
+        const token = jwt.sign({ email, id }, secret, { expireIn: '24h' });
+        res.status(201).json({
+          message: `${user.username} is successfully created as a new account`,
+          token
+        });
+      })
       .catch((err) => {
         switch (err.message) {
           case 'ValidationError':
@@ -51,10 +56,8 @@ export default class Users {
     }
     User.findOne({ where: { email } }).then((user) => {
       if (user && bcrypt.compareSync(req.body.password, user.password)) {
-        const userdata = {
-          email: user.email,
-        };
-        const token = jwt.sign(userdata, secret);
+        const { id } = user;
+        const token = jwt.sign({ email, id }, secret, { expireIn: '24h' });
         return res.status(200).json({ message: 'user logged in', token });
       }
       return res.status(400).json({ message: 'email/password incorrect' });
