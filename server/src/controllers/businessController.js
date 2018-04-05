@@ -28,7 +28,7 @@ export default class Businesses {
       .catch((err) => {
         switch (err.message) {
           case 'ValidationError':
-            res.status(400).send(`client error ${err.message}`);
+            res.status(400).send(`You must enter value to all input field provided error ${err.message}`);
             break;
           default:
             res.status(500).send(`Internl server ${err.message}`);
@@ -47,7 +47,7 @@ export default class Businesses {
   static findOneBusiness(req, res) {
     return Business.findOne({
       where: {
-        id: (req.params.businessid, 10)
+        id: parseInt(req.params.businessid, 10)
       }
     })
       .then((business) => {

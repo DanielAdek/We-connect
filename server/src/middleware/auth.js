@@ -1,10 +1,7 @@
 import jwt from 'jsonwebtoken';
-import db from '../models';
-
 
 require('dotenv').config();
 
-const { User } = db;
 const secret = process.env.SECRET;
 /**
  * @class Authenticate
@@ -21,27 +18,16 @@ export default class Authenticate {
   static verifyUser(req, res, next) {
     const token = req.headers['x-access-token'] || req.query.token || req.headers.authorization;
     if (!token) {
-      res.status(403).json('forbidden');
+      res.status(403).json({ message: 'No token provided' });
     }
     const decoded = jwt.verify(token, secret);
     if (!decoded) {
-      res.status(403).json({ message: 'No token provided' });
+      res.status(403).json({ message: 'Invalid token' });
     }
-    User.fineOne({
-      where: {
-        id: decoded.id,
-        email: decoded.email
-      }
-    }).then((user) => {
-      if (!user) {
-        res.status(404).json({ message: 'No user found' });
-      }
-      req.decoded = decoded;
-      next();
-    });
+    req.decoded = decoded;
+    next();
   }
 
-  /* This code snippet is pelumi longe's idea */
   /**
      * nodata()
      * @desc user does not input any data

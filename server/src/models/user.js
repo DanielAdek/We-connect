@@ -4,7 +4,7 @@ export default (sequelize, DataTypes) => {
       allowNull: false,
       primaryKey: true,
       type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4
+      defaultValue: DataTypes.UUID4
     },
     username: {
       type: DataTypes.STRING,
