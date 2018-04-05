@@ -22,7 +22,7 @@ module.exports = {
         key: 'id'
       }
     },
-    reviews: {
+    review: {
       type: Sequelize.STRING
     },
     createdAt: {
